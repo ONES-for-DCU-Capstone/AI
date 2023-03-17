@@ -80,7 +80,7 @@ class BERTClassifier(nn.Module):
 
 
 
-model = torch.load("/Users/hyeontaemin/workspace/ENG_AI/sample_databertmodel5.pt",map_location=device)
+model = torch.load("sample_databertmodel5.pt",map_location=device)
 
 
 tokenizer = get_tokenizer()
