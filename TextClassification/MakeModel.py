@@ -143,6 +143,9 @@ for e in range(num_epochs):
         test_acc += calc_accuracy(out, label)
     print("epoch {} validation acc {}".format(e+1, test_acc / (batch_id+1)))
     
+    
+# torch.save(model,"모델이름");
+    
 tokenizer = get_tokenizer()
 tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
 
