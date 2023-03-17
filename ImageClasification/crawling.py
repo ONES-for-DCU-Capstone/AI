@@ -18,7 +18,7 @@ driver.get(url)
 driver.implicitly_wait(3)
 
 before_h = driver.execute_script("return window.scrollY") 
-'y좌표 저장' 
+'y좌표 저장.' 
 
 
 for i in range(25) :
