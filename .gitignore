@@ -5,3 +5,5 @@ sample_databertmodel5.pt
 TextData.xlsx
 
 .DS_Store
+
+.ipynb_checkpoints
