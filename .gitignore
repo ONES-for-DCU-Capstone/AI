@@ -7,3 +7,5 @@ TextData.xlsx
 .DS_Store
 
 .ipynb_checkpoints
+
+categoryModel.py
