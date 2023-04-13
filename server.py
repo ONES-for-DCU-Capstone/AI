@@ -6,13 +6,13 @@ Created on Wed Apr 12 16:49:31 2023
 @author: hyeontaemin
 """
 
-#import taglist
+import TagExtractor.taglist
 from flask import Flask, render_template, request
 from flask import jsonify
 from flask_cors import CORS
 import torch
 import TextClassification.categoryModel
-
+from konlpy.tag import Okt
 
 
 app = Flask(__name__)   # Flask객체 할당
@@ -21,14 +21,25 @@ CORS(app, resources={r'*': {'origins': '*'}}) # 모든 곳에서 호출하는 �
 
 
 
+def binary_search(a, x):
+    start = 0
+    end = len(a) - 1
 
+    while start <= end:
+        mid = (start + end) // 2
+        if x == a[mid]:
+            return mid
+        elif x > a[mid]:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return -1
 
 
 
 # tag 정보 가져오기
-#tag = taglist.tagling
+tag = TagExtractor.taglist.sortedTag
 
-#tag = sorted(tag)
 
 
 
@@ -46,6 +57,38 @@ def categoryClassification():
     return result
     
 
+
+@app.route("/api/ai/hashtag", methods=['POST','GET'])
+def createHashtag():
+    
+    params = request.get_json()
+    title = params["title"]
+    content = params["content"]
+    
+    resource = title + content
+    okt = Okt()
+    splitResource = okt.nouns(resource)
+  
+    
+    hashtag = []
+    
+    
+    for i in splitResource:
+        j = binary_search(tag, i)
+        if j != -1:
+            i = "#"+i
+            hashtag.append(i)
+   
+    
+    hashtagList = {"hashtag" : hashtag }
+    print(hashtagList)
+   
+    return jsonify(hashtagList)
+    
+            
+    
+    
+    
 
 
     
