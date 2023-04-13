@@ -11,7 +11,7 @@ from flask import Flask, render_template, request
 from flask import jsonify
 from flask_cors import CORS
 import torch
-import categoryModel
+import TextClassification.categoryModel
 
 
 
@@ -36,12 +36,12 @@ CORS(app, resources={r'*': {'origins': '*'}}) # 모든 곳에서 호출하는 �
 def categoryClassification():
     
     params = request.get_json() # 전달된 json값을 저장
-    title = params["id"]
+    title = params["title"]
     content = params["content"]
     
     resource = title + content
     
-    result = categoryModel.predict(resource)
+    result = TextClassification.categoryModel.predict(resource)
     
     return result
     

@@ -91,7 +91,7 @@ model = BERTClassifier(bertmodel, dr_rate = 0.5).to(device)
 
 #model = torch.load("sample_databertmodel5.pt",map_location=device)
 
-model.load_state_dict(torch.load('sample_datamodelstate.pt',map_location=device))
+model.load_state_dict(torch.load('TextClassification/sample_datamodelstate.pt',map_location=device))
 
 
 tokenizer = get_tokenizer()
