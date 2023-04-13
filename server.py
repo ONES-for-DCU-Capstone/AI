@@ -20,7 +20,7 @@ app = Flask(__name__)   # Flask객체 할당
 CORS(app, resources={r'*': {'origins': '*'}}) # 모든 곳에서 호출하는 것을 허용
 
 
-
+# 이진 탐색
 def binary_search(a, x):
     start = 0
     end = len(a) - 1
@@ -42,7 +42,7 @@ tag = TagExtractor.taglist.sortedTag
 
 
 
-
+# 카테고리 분류
 @app.route("/api/ai/category", methods=['POST','GET'])
 def categoryClassification():
     
@@ -57,7 +57,7 @@ def categoryClassification():
     return result
     
 
-
+# 해시태그
 @app.route("/api/ai/hashtag", methods=['POST','GET'])
 def createHashtag():
     
@@ -92,5 +92,5 @@ def createHashtag():
 
     
     
-#app.run(host="0.0.0.0", port=2222) #서버 실행
+
 app.run(port=8000, debug=True) #로컬 테스트 확인용 

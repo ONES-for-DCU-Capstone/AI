@@ -147,16 +147,8 @@ def predict(predict_sentence):
             elif np.argmax(logits) == 11:
                 test_eval.append("담배/주류")
             
-        #print(">> 카테고리는 " + test_eval[0] + " 입니다.")
+
         categoryPred = {"category" : test_eval[0]}
         return jsonify(categoryPred)
         
 
-#end = 1
-#while end == 1 :
-#    sentence = input("입력하세요 : ")
-#    if sentence == 0 :
-#        break
-#    predict(sentence)
-#    print("\n")
-    
