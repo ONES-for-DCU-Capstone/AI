@@ -81,7 +81,6 @@ def createHashtag():
    
     
     hashtagList = {"hashtag" : hashtag }
-    print(hashtagList)
    
     return jsonify(hashtagList)
     
