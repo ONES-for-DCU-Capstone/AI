@@ -16,6 +16,8 @@ from konlpy.tag import Okt
 
 
 app = Flask(__name__)   # Flask객체 할당
+
+app.config['JSON_AS_ASCII'] = False
  
 CORS(app, resources={r'*': {'origins': '*'}}) # 모든 곳에서 호출하는 것을 허용
 
@@ -93,4 +95,4 @@ def createHashtag():
     
     
 
-app.run(port=8000, debug=True) #로컬 테스트 확인용 
+app.run(host="0.0.0.0", port=8000, debug=True) #로컬 테스트 확인용 
