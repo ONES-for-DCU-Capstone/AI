@@ -17,7 +17,7 @@ from konlpy.tag import Okt
 
 app = Flask(__name__)   # Flask객체 할당
 
-app.config['JSON_AS_ASCII'] = False
+app.config['JSON_AS_ASCII'] = False # 한글 
  
 CORS(app, resources={r'*': {'origins': '*'}}) # 모든 곳에서 호출하는 것을 허용
 
@@ -81,8 +81,10 @@ def createHashtag():
             i = "#"+i
             hashtag.append(i)
    
+    hashSet = set(hashtag)
+    hashList = list(hashSet)
     
-    hashtagList = {"hashtag" : hashtag }
+    hashtagList = {"hashtag" : hashList }
    
     return jsonify(hashtagList)
     
