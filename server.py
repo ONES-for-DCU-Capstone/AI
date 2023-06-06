@@ -97,4 +97,4 @@ def createHashtag():
     
     
 
-app.run(host="0.0.0.0", port=8000, debug=True) #로컬 테스트 확인용 
+app.run(host="0.0.0.0", port=3001, debug=True) #로컬 테스트 확인용 
